@@ -1,8 +1,9 @@
-function! slime_wezterm#config()
-  if !exists("b:slime_config['wezterm']")
-    let b:slime_config = {"wezterm" : {"pane_id": "0"}}
+function! slime_wezterm#config(config)
+  if !exists("a:config['wezterm']")
+    let a:config["wezterm"] = {"pane_id": "0"}
   end
-  let b:slime_config["wezterm"]["pane_id"] = input("Wezterm pane ID: ", b:slime_config["wezterm"]["pane_id"])
+  let a:config["wezterm"]["pane_id"] = input("Wezterm pane ID: ", a:config["wezterm"]["pane_id"])
+  return a:config
 endfunction
 
 function! slime_wezterm#send(config, text)
